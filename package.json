@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon 30DaysOfJS/romanToInteger.ts"
+    "start": "nodemon neetCode/isAnagram.ts"
   },
   "keywords": [],
   "author": "",
