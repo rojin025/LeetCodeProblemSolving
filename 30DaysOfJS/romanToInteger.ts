@@ -1,25 +1,29 @@
 function romanToInt(s: string): number {
-  const romanIntegerMap = {
-    I: 1,
-    V: 5,
-    X: 10,
-    L: 50,
-    C: 100,
-    D: 500,
-    M: 1000,
-  };
+  const romanIntMap = new Map();
+
+  romanIntMap.set("I", 1);
+  romanIntMap.set("V", 5);
+  romanIntMap.set("X", 10);
+  romanIntMap.set("L", 50);
+  romanIntMap.set("C", 100);
+  romanIntMap.set("D", 500);
+  romanIntMap.set("M", 1000);
+
   let result = 0;
   let prev = 0;
   let cur = 0;
-  let romanNumbers = s.split("");
+  let romanNumbers: string[] = s.split("");
 
-  for (let i = romanNumbers.length; i >= 0; i--) {
-    cur = Number(romanNumbers[i]);
+  //   console.log(romanNumbers);
 
-    if (cur > prev) {
-      result = result + Number(romanNumbers[i]);
+  for (let i = romanNumbers.length - 1; i >= 0; i--) {
+    cur = romanIntMap.get(romanNumbers[i]);
+    // console.log(cur);
+
+    if (cur >= prev) {
+      result = result + romanIntMap.get(romanNumbers[i]);
     } else {
-      result = result - Number(romanNumbers[i]);
+      result = result - romanIntMap.get(romanNumbers[i]);
     }
 
     prev = cur;
@@ -27,3 +31,9 @@ function romanToInt(s: string): number {
 
   return result;
 }
+
+console.log("running");
+
+console.log(romanToInt("III"));
+console.log(romanToInt("LVIII"));
+console.log(romanToInt("MCMXCIV"));

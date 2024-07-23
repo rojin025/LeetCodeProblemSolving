@@ -4,7 +4,8 @@
   "description": "Solving with senior Developer",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon 30DaysOfJS/romanToInteger.ts"
   },
   "keywords": [],
   "author": "",
