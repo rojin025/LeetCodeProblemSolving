@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon neetCode/anagramGroups.ts"
+    "start": "nodemon leetCode/findPermutationDifference.ts"
   },
   "keywords": [],
   "author": "",
