@@ -36,3 +36,5 @@ function twoSum(nums: number[], target: number): number[] {
 
   return [];
 }
+
+//TODO: Can you improve the time complexity of it? hint: using HashMap
