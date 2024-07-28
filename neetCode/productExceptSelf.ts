@@ -1,27 +1,22 @@
 function productExceptSelf(nums: number[]) {
-  let n = nums.length;
-  let results: number[] = [];
-  let mulLeft: number[] = [];
-  let mulRight: number[] = [];
+  let size = nums.length;
+  let results: number[] = Array(size).fill(1);
+  let mulLeft: number[] = Array(size).fill(1);
+  let mulRight: number[] = Array(size).fill(1);
 
   // left multiplication
-  let leftMul = 1;
-  mulLeft[0] = leftMul;
-  for (let i = 1; i < n; i++) {
-    leftMul *= nums[i];
-    mulLeft[i] = leftMul;
+  for (let i = 1; i < size; i++) {
+    mulLeft[i] = mulLeft[i - 1] * nums[i - 1];
   }
   console.log(mulLeft);
 
-  let rightMul = 1;
-  mulRight[n - 1] = rightMul;
-  for (let i = n - 2; i >= 0; i--) {
-    rightMul *= nums[i];
-    mulRight[i] = rightMul;
+  // Right MUl
+  for (let i = size - 2; i >= 0; i--) {
+    mulRight[i] = mulRight[i + 1] * nums[i + 1];
   }
   console.log(mulRight);
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < size; i++) {
     results[i] = mulLeft[i] * mulRight[i];
   }
 
