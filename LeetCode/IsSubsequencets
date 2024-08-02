@@ -10,6 +10,18 @@ class Solution {
     // }
     // return i==sc.length;
 
+    let targetCharPosition = 0;
+    let targetLength = t.length;
+
+    for (let i = 0; i <= s.length; i++) {
+      // for (let j = 0; j <= t.length; j++){
+      // }
+      if (s.charAt(i) === t.charAt(targetCharPosition)) {
+        if (targetCharPosition === targetLength) return true;
+        targetCharPosition++;
+      }
+    }
+
     return false;
   }
 }
