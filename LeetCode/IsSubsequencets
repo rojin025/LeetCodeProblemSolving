@@ -9,5 +9,7 @@ class Solution {
     //     if (i<sc.length && c == sc[i]) i++;
     // }
     // return i==sc.length;
+
+    return false;
   }
 }
