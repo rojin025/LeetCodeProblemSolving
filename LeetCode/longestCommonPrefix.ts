@@ -1,21 +1,12 @@
 function longestCommonPrefix(strs: string[]): string {
   let strsLength = strs.length;
-  let prefix = "";
-  let targetStr = strs[0];
+  let prefix = strs[0];
 
   if (strsLength === 0) return prefix;
 
-  for (let char = 0; char < targetStr.length; char++) {
-    let isPrefixCounter = 0;
-
-    for (let curStr = 0; curStr < strsLength; curStr++) {
-      if (strs[curStr].startsWith(targetStr.substring(0, char))) {
-        isPrefixCounter++;
-      }
-    }
-
-    if (isPrefixCounter === strsLength) {
-      prefix = targetStr.substring(0, char);
+  for (let curStr = 1; curStr < strsLength; curStr++) {
+    while (strs[curStr].indexOf(prefix) != 0) {
+      prefix = prefix.substring(0, prefix.length - 1);
     }
   }
 
@@ -33,6 +24,8 @@ console.log(
 // console.log("targetStr".substring(0, 2));
 
 /**
+ * JAVA 
+ * 
  * class Solution {
     public String longestCommonPrefix(String[] strs) {
         if(strs.length == 0) return "";
