@@ -15,8 +15,8 @@ function longestCommonPrefix(strs: string[]): string {
 
 console.log("Longest Common Prefix.");
 
-// console.log("-->", longestCommonPrefix(["flower", "flow", "flight"]));
-// console.log("-->", longestCommonPrefix(["flower", "blow", "alight"]));
+console.log("-->", longestCommonPrefix(["flower", "flow", "flight"]));
+console.log("-->", longestCommonPrefix(["flower", "blow", "alight"]));
 console.log(
   "-->",
   longestCommonPrefix(["flower", "flower", "flower", "flower"])
