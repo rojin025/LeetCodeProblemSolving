@@ -7,12 +7,11 @@ type JSONValue =
   | { [key: string]: JSONValue };
 type Obj = Record<string, JSONValue> | Array<JSONValue>;
 
-function chunk(arr: Obj[], size: number): Obj[][] {
-  // let isTrue = true;
-  let returnArray: Obj[][] = [];
+function chunk(arr: JSONValue[], size: number): JSONValue[][] {
+  let returnArray: JSONValue[][] = [];
 
   for (let i = 0; i < Math.ceil(arr.length / size); i++) {
-    let chunkArray: Obj[] = [];
+    let chunkArray: JSONValue[] = [];
     for (let j = 0; j < arr.length; j++) {
       chunkArray.push(arr[j]);
     }
@@ -20,3 +19,6 @@ function chunk(arr: Obj[], size: number): Obj[][] {
   }
   return returnArray;
 }
+
+console.log("Running Chuck");
+console.log(chunk([1, 2, 3, 4, 5], 1));
