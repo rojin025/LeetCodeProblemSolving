@@ -32,3 +32,65 @@ function isValidSudoku(board: string[][]): boolean {
 
   return true;
 }
+
+console.log("IsValidSudoku running.");
+console.log(
+  isValidSudoku([
+    ["5", "3", ".", ".", "7", ".", ".", ".", "."],
+    ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+    [".", "9", "8", ".", ".", ".", ".", "6", "."],
+    ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+    ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+    ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+    [".", "6", ".", ".", ".", ".", "2", "8", "."],
+    [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+    [".", ".", ".", ".", "8", ".", ".", "7", "9"],
+  ])
+);
+
+/**
+ //Best solution
+
+ function isValidSudoku(board: string[][]): boolean {
+  const subBoxesSets = Array.from({ length: 3 }, () =>
+    Array.from({ length: 3 }, () => new Set<string>()),
+  );
+
+  for (let r = 0; r < board.length; r++) {
+    const rowSet = new Set<string>();
+
+    for (let c = 0; c < board[r].length; c++) {
+      if (board[r][c] === '.') continue;
+
+      const cr = Math.floor(c / 3);
+      const cc = Math.floor(r / 3);
+      const boxSet = subBoxesSets[cc][cr];
+
+      const num = board[r][c];
+
+      if (rowSet.has(num)) return false;
+      if (boxSet.has(num)) return false;
+
+      boxSet.add(num);
+      rowSet.add(num);
+    }
+  }
+
+  for (let c = 0; c < board.length; c++) {
+    const colSet = new Set<string>();
+
+    for (let r = 0; r < board[c].length; r++) {
+      if (board[r][c] === '.') continue;
+
+      const num = board[r][c];
+
+      if (colSet.has(num)) return false;
+
+      colSet.add(num);
+    }
+  }
+
+  return true;
+}
+  
+ */
