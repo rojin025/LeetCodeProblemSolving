@@ -5,19 +5,23 @@ https://leetcode.com/problems/longest-consecutive-sequence/
  * @returns 
  */
 function longestConsecutive(nums: number[]): number {
-  let numsSet = new Set(nums);
-  let longest = 0;
+  let numSet: Set<number> = new Set(nums);
+  let longestStreak: number = 0;
 
-  for (const num of numsSet) {
-    if (!numsSet.has(num - 1)) {
+  for (const num of numSet) {
+    // Check if left number exist's
+    if (!numSet.has(num - 1)) {
       let length = 1;
-      while (numsSet.has(num + length)) {
+
+      while (numSet.has(num + length)) {
         length++;
       }
-      longest = Math.max(length, longest);
+
+      longestStreak = Math.max(length, longestStreak);
     }
   }
-  return longest;
+
+  return longestStreak;
 }
 
 console.log("Longest Consecutive Running");
