@@ -4,6 +4,10 @@
  */
 
 function threeSum(nums: number[]): number[][] {
-  let result: number[][] = [];
+  nums.sort((a, b) => a - b);
+  const result: number[][] = [];
+
+  for (let i = 0; i < nums.length; i++) {}
+
   return result;
 }
