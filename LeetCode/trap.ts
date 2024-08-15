@@ -1,6 +1,5 @@
 /**
  https://leetcode.com/problems/trapping-rain-water/
- * @param height 
  */
 function trap(height: number[]): number {
   if (!height || !height.length) return 0;
@@ -28,3 +27,4 @@ function trap(height: number[]): number {
 
 console.log("Traped water running.");
 console.log(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]));
+console.log(trap([4, 2, 0, 3, 2, 5]));

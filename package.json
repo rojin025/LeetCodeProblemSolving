@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon leetCode/trap.ts"
+    "start": "nodemon leetCode/minStack.ts"
   },
   "keywords": [],
   "author": "",
