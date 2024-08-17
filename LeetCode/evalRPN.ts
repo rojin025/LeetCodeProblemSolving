@@ -14,7 +14,7 @@ function evalRPN(token: string[]): number {
     }
   }
 
-  return Number(stack[0]);
+  return Number(stack.pop());
 }
 
 function evaluate(operator: string, b: number, a: number): string {
@@ -28,7 +28,7 @@ function evaluate(operator: string, b: number, a: number): string {
     case "/":
       return String((a / b) | 0); // 0 willturncate our quoting toward Zero.
     default:
-      return "00";
+      return "0";
   }
 }
 
