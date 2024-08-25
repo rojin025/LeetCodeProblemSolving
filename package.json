@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon leetCode/binarySearch.ts"
+    "start": "nodemon leetCode/BinSearch/findMin.ts"
   },
   "keywords": [],
   "author": "",
