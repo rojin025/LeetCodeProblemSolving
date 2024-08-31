@@ -4,12 +4,28 @@ https://leetcode.com/problems/longest-repeating-character-replacement/descriptio
  */
 
 function characterReplacement(s: string, k: number): number {
-  let longReplacement = 0;
+  let longCharReplacement = 0;
+  const count = new Map();
+  let left = 0;
 
-  return longReplacement;
+  for (let right = 0; right < s.length; right++) {
+    let length = right - left + 1;
+    count.set(s[right], 1 + (count.get(s[right]) || 0));
+
+    if (length - Math.max(...count.values()) > k) {
+      count.set(s[left], count.get(s[left]) - 1);
+      left++;
+    }
+
+    length = right - left + 1;
+    longCharReplacement = Math.max(longCharReplacement, length);
+  }
+
+  return longCharReplacement;
 }
 
 console.log("Chararcter Replacement runnning.");
+console.log(characterReplacement("AAABABB", 1));
 console.log(characterReplacement("AABABBA", 1));
 console.log(characterReplacement("ABAB", 2));
 

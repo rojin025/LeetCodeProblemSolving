@@ -25,3 +25,4 @@ console.log("3. Longest substring without repeating char.");
 console.log(lengthOfLongestSubstring("abcabcbb"));
 console.log(lengthOfLongestSubstring("bbbb"));
 console.log(lengthOfLongestSubstring("pwwkew"));
+9;
