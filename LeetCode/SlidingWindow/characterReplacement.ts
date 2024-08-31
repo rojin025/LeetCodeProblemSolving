@@ -36,7 +36,7 @@ function characterReplacement(s: string, k: number): number {
     let l = 0;
     let maxFreq= 0;
     let res = 0;
-
+                                                                                                    
     for (let r = 0; r < s.length; r++) {
         let idx = s.charCodeAt(r) - idx0
         map[idx] += 1;
