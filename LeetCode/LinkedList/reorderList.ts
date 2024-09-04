@@ -27,7 +27,7 @@
 
 };
 
-function findMiddleNode (head: ListNode ): ListNode {
+function findMiddleNode (head: ListNode | null ): ListNode | null {
     let slow = head;
     let fast = head;
 
@@ -37,6 +37,20 @@ function findMiddleNode (head: ListNode ): ListNode {
     }
 
     return slow;
+}
+
+function reverse(head: ListNode) : ListNode | null {
+    let previous = null;
+    let current = head;
+
+    while(current) {
+        let next = current.next;
+        current.next = previous;
+        previous = current;
+        current = next;
+    }
+
+    return previous;
 }
 
 /*
