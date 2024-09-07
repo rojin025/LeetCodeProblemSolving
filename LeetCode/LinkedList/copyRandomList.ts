@@ -30,13 +30,15 @@ class _Node {
 }
 
 function copyRandomList(head: _Node | null): _Node | null {
+  if (!head) return null;
+
   const hashMap = new Map();
   hashMap.set(null, null);
 
   let currentNode = head;
   while (currentNode) {
     const copyVal = new _Node(currentNode.val);
-    hashMap.set(currentNode, copyVal);
+    hashMap.set(currentNode, currentNode.val);
 
     currentNode = currentNode.next;
   }
