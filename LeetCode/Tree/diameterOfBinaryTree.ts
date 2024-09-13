@@ -1,11 +1,11 @@
 //https://leetcode.com/problems/diameter-of-binary-tree/
 
-function diameterOfBinaryTree(root: _TreeNode | null): number {
+function diameterOfBinaryTree(root: TreeNode | null): number {
   if (!root) return 0;
 
   let diameter = 0;
 
-  function dfs(root: _TreeNode | null): number {
+  function dfs(root: TreeNode | null): number {
     if (!root) return 0;
 
     const leftDepth = dfs(root.left);
