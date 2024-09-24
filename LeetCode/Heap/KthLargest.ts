@@ -1,3 +1,5 @@
+import { MinPriorityQueue } from "./PriorityQueue/minPriorityQueue";
+
 /**
  * @param {number} k
  * @param {number[]} nums
