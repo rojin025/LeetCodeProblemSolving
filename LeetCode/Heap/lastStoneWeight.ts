@@ -11,13 +11,16 @@ function lastStoneWeight(stones: number[]): number {
 
   for (const stone of stones) pq.enqueue(stone);
 
+  console.log(pq.getAllElements());
+
   while (pq.size() > 1) {
-    const b = pq.dequeue();
-    const a = pq.dequeue();
-    pq.enqueue(a - b);
+    const b = pq.dequeue()?.val ?? 0;
+    const a = pq.dequeue()?.val ?? 0;
+    pq.enqueue(Math.abs(a - b));
+    console.log(pq.getAllElements());
   }
 
-  return pq.dequeue();
+  return pq.dequeue()?.val ?? 0;
 }
 
 console.log("lastStoneWeight running:");

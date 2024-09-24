@@ -30,20 +30,15 @@ export class MaxPriorityQueue {
   }
 
   // Dequeue: Remove and return the element at the front (largest element)
-  dequeue(): number {
+  dequeue(): ListNode | null {
     if (!this.head) {
-      return 0;
-      //   throw new Error("Queue is empty");
+      throw new Error("Queue is empty");
     }
 
-    // Store the value of the largest element
-    const maxValue = this.head.val;
+    const maxNode = this.head; // Store the node itself
+    this.head = this.head.next; // Move to the next node
 
-    // Remove the head node (which is the largest element)
-    this.head = this.head.next;
-
-    // Return the value of the dequeued element
-    return maxValue;
+    return maxNode; // Return the node instead of just the value
   }
 
   // Return the largest element (element at the front)
@@ -53,6 +48,19 @@ export class MaxPriorityQueue {
     }
 
     return { element: this.head.val };
+  }
+
+  // Return all elements without modifying the queue
+  getAllElements(): number[] {
+    const elements: number[] = [];
+    let current = this.head;
+
+    while (current !== null) {
+      elements.push(current.val); // Collect each element's value
+      current = current.next; // Move to the next node
+    }
+
+    return elements;
   }
 
   // Return the size of the queue
