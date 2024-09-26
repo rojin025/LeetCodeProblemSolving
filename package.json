@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon leetCode/Heap/lastStoneWeight.ts"
+    "start": "nodemon leetCode/Heap/findKthLargest.ts"
   },
   "keywords": [],
   "author": "",

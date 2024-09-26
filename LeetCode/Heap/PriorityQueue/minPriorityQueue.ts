@@ -8,8 +8,8 @@ export class MinPriorityQueue {
   }
 
   // Enqueue: Insert element in ascending order
-  enqueue(val: number): void {
-    const newNode = new ListNode(val);
+  enqueue(newNode: ListNode): void {
+    const val = newNode.val;
 
     // If the list is empty or the new value is smaller than the head, insert at the head
     if (!this.head || val < this.head.val) {
@@ -45,13 +45,25 @@ export class MinPriorityQueue {
     return minValue;
   }
 
-  // Return the smallest element (element at the front)
-  front(): { element: number } {
+  dequeueVals(): number[] {
     if (!this.head) {
       throw new Error("Queue is empty");
     }
 
-    return { element: this.head.val };
+    const minValues = this.head.vals;
+
+    this.head = this.head.next;
+
+    return minValues;
+  }
+
+  // Return the smallest element (element at the front)
+  front(): ListNode {
+    if (!this.head) {
+      throw new Error("Queue is empty");
+    }
+
+    return this.head;
   }
 
   // Return the size of the queue
