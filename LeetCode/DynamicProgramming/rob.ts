@@ -1,12 +1,19 @@
 function rob(nums: number[]): number {
-  let rob1 = 0;
-  let rob2 = 0;
-
-  for (const num of nums) {
-    const maxAmt = Math.max(num + rob1, rob2);
-    rob1 = rob2;
-    rob2 = maxAmt;
+  if (nums.length === 1) {
+    return nums[0];
   }
 
-  return rob2;
+  let tempRob = 0;
+  let maxRob = 0;
+
+  for (const num of nums) {
+    const maxAmt = Math.max(num + tempRob, maxRob);
+    tempRob = maxRob;
+    maxRob = maxAmt;
+  }
+
+  return maxRob;
 }
+
+console.log(rob([1, 2, 3, 1]));
+console.log(rob([2, 7, 9, 3, 1]));

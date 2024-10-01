@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon leetCode/DynamicProgramming/minCostClimbingStairs.ts"
+    "start": "nodemon leetCode/DynamicProgramming/rob.ts"
   },
   "keywords": [],
   "author": "",
