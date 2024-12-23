@@ -16,14 +16,35 @@ class PrefixTree {
   }
 
   /** insert word into Trie */
-  insert(word: string): void {}
+  insert(word: string): void {
+    let cur: TrieNode = this.root;
 
-  /** Check if there is word in trie. */
-  search(): boolean {
-    return false;
+    for (const c of word) {
+      if (!cur.children.has(c)) {
+        cur.children.set(c, new TrieNode());
+      }
+      cur = cur.children.get(c)!;
+    }
+
+    cur.endOfword = true;
   }
 
-  startsWith(prefix): boolean {
+  /** Check if there is word in trie. */
+  search(word: string): boolean {
+    let cur: TrieNode = this.root;
+
+    for (const c of word) {
+      if (!cur.children.has(c)) return false;
+
+      cur = cur.children.get(c)!;
+    }
+
+    return cur.endOfword;
+  }
+
+  startsWith(prefix: string): boolean {
     return false;
   }
 }
+
+// app
