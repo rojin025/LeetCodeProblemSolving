@@ -1,3 +1,9 @@
+/**
+ Using Hash Map
+ time complexity: O(n)
+ space complexity: O(t) t = total TrieNode
+ */
+
 class TrieNode {
   children: Map<string, TrieNode>;
   endOfword: boolean;
@@ -8,7 +14,7 @@ class TrieNode {
   }
 }
 
-class PrefixTree {
+class Trie {
   private root: TrieNode;
 
   constructor() {
@@ -43,8 +49,22 @@ class PrefixTree {
   }
 
   startsWith(prefix: string): boolean {
-    return false;
+    let cur: TrieNode = this.root;
+
+    for (const c of prefix) {
+      if (!cur.children.has(c)) return false;
+
+      cur = cur.children.get(c)!;
+    }
+
+    return true;
   }
 }
 
-// app
+/**
+ * Your Trie object will be instantiated and called as such:
+ * var obj = new Trie()
+ * obj.insert(word)
+ * var param_2 = obj.search(word)
+ * var param_3 = obj.startsWith(prefix)
+ */
