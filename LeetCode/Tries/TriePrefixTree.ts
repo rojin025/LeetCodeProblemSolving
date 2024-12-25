@@ -4,16 +4,6 @@
  space complexity: O(t) t = total TrieNode
  */
 
-class TrieNode {
-  children: Map<string, TrieNode>;
-  endOfword: boolean;
-
-  constructor() {
-    this.children = new Map();
-    this.endOfword = false;
-  }
-}
-
 class Trie {
   private root: TrieNode;
 
@@ -32,7 +22,7 @@ class Trie {
       cur = cur.children.get(c)!;
     }
 
-    cur.endOfword = true;
+    cur.endOfWord = true;
   }
 
   /** Check if there is word in trie. */
@@ -45,7 +35,7 @@ class Trie {
       cur = cur.children.get(c)!;
     }
 
-    return cur.endOfword;
+    return cur.endOfWord;
   }
 
   startsWith(prefix: string): boolean {

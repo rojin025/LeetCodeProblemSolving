@@ -14,7 +14,7 @@ class WordDictionary {
       cur = cur.children.get(c)!;
     }
 
-    cur.endOfword = true;
+    cur.endOfWord = true;
   }
 
   serach(word: string): boolean {
@@ -40,7 +40,7 @@ class WordDictionary {
       }
     }
 
-    return curNode.endOfword;
+    return curNode.endOfWord;
   }
 }
 
