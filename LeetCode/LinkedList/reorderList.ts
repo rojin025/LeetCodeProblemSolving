@@ -23,8 +23,8 @@ function reorderList(head: ListNode | null): void {
   if (!head) return;
 
   let middle = findMiddleNode(head);
-  let fastHead = reverse(middle.next);
-  middle.next = null;
+  let fastHead = reverse(middle!.next!);
+  middle!.next = null;
 
   merge(head, fastHead);
 }
@@ -34,7 +34,7 @@ function findMiddleNode(head: ListNode | null): ListNode | null {
   let fast = head;
 
   while (fast && fast.next) {
-    slow = slow.next;
+    slow = slow!.next;
     fast = fast?.next?.next;
   }
 
@@ -42,8 +42,8 @@ function findMiddleNode(head: ListNode | null): ListNode | null {
 }
 
 function reverse(head: ListNode): ListNode | null {
-  let previous = null;
-  let current = head;
+  let previous: ListNode | null = null;
+  let current: ListNode | null = head;
 
   while (current) {
     let next = current.next;
@@ -57,8 +57,8 @@ function reverse(head: ListNode): ListNode | null {
 
 function merge(slowHead: ListNode | null, fastHead: ListNode | null) {
   while (fastHead) {
-    let next = slowHead?.next;
-    slowHead.next = fastHead;
+    let next: ListNode | null = slowHead!.next;
+    slowHead!.next = fastHead;
     slowHead = fastHead;
     fastHead = next;
   }
@@ -69,5 +69,9 @@ type ListNode = {
     val: number;
     next: ListNode | null;
   }; 
-  
   */
+
+/**
+   Time complexity: O(n)
+   Space complexity: O(n)
+   */
