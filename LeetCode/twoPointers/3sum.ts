@@ -1,6 +1,13 @@
 /**
   https://leetcode.com/problems/3sum/
+  https://neetcode.io/problems/three-integer-sum
   
+  Time & Space Complexity
+    Time complexity: O(n ^2)
+
+    Space complexity: o(1 ) or O(n)
+    O(n) depending on the sorting algorithm.
+
  */
 
 function threeSum(nums: number[]): number[][] {
