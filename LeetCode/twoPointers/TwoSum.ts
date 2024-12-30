@@ -38,3 +38,29 @@ function twoSum(nums: number[], target: number): number[] {
 }
 
 //TODO: Can you improve the time complexity of it? hint: using HashMap
+
+class Solution {
+  /**
+   * O(n) and O(1)
+   * @param {number[]} numbers
+   * @param {number} target
+   * @return {number[]}
+   */
+  twoSum(numbers, target) {
+    let l = 0;
+    let r = numbers.length - 1;
+
+    while (l < r) {
+      const curSum = numbers[l] + numbers[r];
+
+      if (curSum > target) {
+        r--;
+      } else if (curSum < target) {
+        l++;
+      } else {
+        return [l + 1, r + 1];
+      }
+    }
+    return [];
+  }
+}
