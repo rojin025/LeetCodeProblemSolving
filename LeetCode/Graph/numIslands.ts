@@ -55,8 +55,8 @@ function numIslands(grid: string[][]): number {
  */
 
 /**
- * Clean
- * 
+Clean Code
+
 function numIslands(grid: string[][]): number {
     let count = 0;
     const rows = grid.length;
