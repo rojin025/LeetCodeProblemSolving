@@ -51,3 +51,50 @@ function islandsAndTreasure(grid: number[][]): void {
     }
   }
 }
+
+class Solution {
+  islandsAndTreasure(grid: number[][]): void {
+    const ROWS: number = grid.length;
+    const COLS: number = grid[0].length;
+    const visit: Set<string> = new Set();
+    const q: Array<[number, number]> = []; // Use an array as a queue
+
+    const addCell = (r: number, c: number): void => {
+      if (
+        Math.min(r, c) < 0 ||
+        r >= ROWS ||
+        c >= COLS ||
+        visit.has(`${r},${c}`) ||
+        grid[r][c] === -1
+      ) {
+        return;
+      }
+      visit.add(`${r},${c}`);
+      q.push([r, c]);
+    };
+
+    // Initialize the queue with all cells containing 0
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        if (grid[r][c] === 0) {
+          q.push([r, c]);
+          visit.add(`${r},${c}`);
+        }
+      }
+    }
+
+    let dist: number = 0;
+    while (q.length > 0) {
+      const size = q.length;
+      for (let i = 0; i < size; i++) {
+        const [r, c] = q.shift()!;
+        grid[r][c] = dist;
+        addCell(r + 1, c);
+        addCell(r - 1, c);
+        addCell(r, c + 1);
+        addCell(r, c - 1);
+      }
+      dist += 1;
+    }
+  }
+}
